@@ -11,3 +11,7 @@ Network fundamentals bootcamp
 ## Journal
 
 - [Lesson 1]()
+
+
+- [Lesson 2]()
+### Setting up a VPC
