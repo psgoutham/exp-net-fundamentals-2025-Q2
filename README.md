@@ -14,4 +14,3 @@ Network fundamentals bootcamp
 
 
 - [Lesson 2]()
-### Setting up a VPC
