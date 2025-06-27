@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Usage: ./deploy_vpc.sh <STACK_NAME> [VPC_CIDR] [PUBLIC_SUBNET_CIDR] [PRIVATE_SUBNET_CIDR] [AZ] [PROJECT_TAG]
+
+STACK_NAME=${1:-nf-bootcamp-vpc-stack}
+VPC_CIDR=${2:-10.200.123.0/24}
+PUBLIC_SUBNET_CIDR=${3:-10.200.123.0/28}
+PRIVATE_SUBNET_CIDR=${4:-10.200.123.128/28}
+AZ=${5:-ap-south-1a}
+PROJECT_TAG=${6:-nf-bootcamp}
+
+# Validate mandatory argument
+if [ -z "$STACK_NAME" ]; then
+  echo "Usage: $0 <STACK_NAME> [VPC_CIDR] [PUBLIC_SUBNET_CIDR] [PRIVATE_SUBNET_CIDR] [AZ] [PROJECT_TAG]"
+  exit 1
+fi
+
+# Deploy the CloudFormation template
+aws cloudformation deploy \
+  --stack-name "$STACK_NAME" \
+  --template-file template.yaml \
+  --parameter-overrides VpcCidr="$VPC_CIDR" PublicSubnetCidr="$PUBLIC_SUBNET_CIDR" PrivateSubnetCidr="$PRIVATE_SUBNET_CIDR" AvailabilityZone="$AZ" ProjectTag="$PROJECT_TAG" \
+  --capabilities CAPABILITY_NAMED_IAM
+
+if [ $? -eq 0 ]; then
+  echo "✅ Stack $STACK_NAME deployed successfully!"
+else
+  echo "❌ Stack deployment failed."
+fi
