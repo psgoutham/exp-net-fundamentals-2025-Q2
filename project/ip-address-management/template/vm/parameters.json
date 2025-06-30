@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": { "value": "centralindia" },
+    "networkInterfaceName1": { "value": "nf-windows-server754_z1" },
+    "networkSecurityGroupName": { "value": "nf-windows-server-nsg" },
+    "networkSecurityGroupRules": {
+      "value": [
+        {
+          "name": "RDP",
+          "properties": {
+            "priority": 300,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "3389"
+          }
+        }
+      ]
+    },
+    "subnetName": { "value": "default" },
+    "virtualNetworkName": { "value": "nf-windows-server-vnet" },
+    "addressPrefixes": { "value": ["10.0.0.0/16"] },
+    "subnets": {
+      "value": [
+        {
+          "name": "default",
+          "properties": {
+            "addressPrefix": "10.0.0.0/24"
+          }
+        }
+      ]
+    },
+    "publicIpAddressName1": { "value": "nf-windows-server-ip" },
+    "publicIpAddressType": { "value": "Static" },
+    "publicIpAddressSku": { "value": "Standard" },
+    "pipDeleteOption": { "value": "Delete" },
+    "virtualMachineName": { "value": "nf-windows-server" },
+    "virtualMachineName1": { "value": "nf-windows-server" },
+    "virtualMachineComputerName1": { "value": "nf-windows-serv" },
+    "virtualMachineRG": { "value": "nf-bootcamp-rsg" },
+    "osDiskType": { "value": "Premium_LRS" },
+    "osDiskDeleteOption": { "value": "Delete" },
+    "virtualMachineSize": { "value": "Standard_B2s" },
+    "nicDeleteOption": { "value": "Delete" },
+    "hibernationEnabled": { "value": false },
+    "adminUsername": { "value": "adminuser" },
+    "adminPassword": { "value": "Angul@r$161_" },
+    "patchMode": { "value": "Manual" },
+    "enablePeriodicAssessment": { "value": "ImageDefault" },
+    "enableHotpatching": { "value": false },
+    "rebootSetting": { "value": "IfRequired" },
+    "virtualMachine1Zone": { "value": "1" },
+    "imagePublisher": { "value": "MicrosoftWindowsDesktop" },
+    "imageOffer": { "value": "windows-11" },
+    "imageSku": { "value": "win11-22h2-entn" },
+    "imageVersion": { "value": "latest" }
+  }
+}
