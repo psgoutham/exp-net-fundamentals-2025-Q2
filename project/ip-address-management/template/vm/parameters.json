@@ -49,7 +49,7 @@
     "nicDeleteOption": { "value": "Delete" },
     "hibernationEnabled": { "value": false },
     "adminUsername": { "value": "adminuser" },
-    "adminPassword": { "value": "Angul@r$161_" },
+    "adminPassword": { "value": "" },
     "patchMode": { "value": "Manual" },
     "enablePeriodicAssessment": { "value": "ImageDefault" },
     "enableHotpatching": { "value": false },
